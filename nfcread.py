@@ -21,8 +21,8 @@ def read(timeout_sec):
 
     idm = None
     if tag:
-        # Because Type4ATag,Type4BTag object has no attribute 'idm'
-        # Type4ATag,Type4BTagは「tag.idm」でAttributeErrorが発生する。
+        # attributeerror occurs if the tag does not have an idm.
+        # idmがない場合「tag.idm」でAttributeErrorが発生する。
         try:
             idm = binascii.hexlify(tag.idm).decode()
         except AttributeError:
